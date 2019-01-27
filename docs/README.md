@@ -13,7 +13,7 @@ API doc
 
 ### Classes
 
-* [StackSubject](https://gerkindev.github.io/stack-subject/classes/stacksubject.md)
+* [StackSubject](classes/stacksubject.md)
 
 ---
 

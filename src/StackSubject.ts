@@ -2,6 +2,13 @@ import { Subject, Subscriber, Subscription, SubscriptionLike } from 'rxjs';
 
 const last = <T>( items: T[] ) => items.length > 0 ? items[items.length - 1] : undefined;
 
+/**
+ * A [stack](https://www.studytonight.com/data-structures/stack-data-structure) subject.
+ * 
+ * @see Subject https://rxjs-dev.firebaseapp.com/guide/subject
+ * @noInheritDoc
+ * @typeParam T - The type of item contained by the StackSubject.
+ */
 export class StackSubject<T> extends Subject<T> {
 	private stack: T[] = [];
 
