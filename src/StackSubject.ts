@@ -5,6 +5,15 @@ const last = <T>( items: T[] ) => items.length > 0 ? items[items.length - 1] : u
 export class StackSubject<T> extends Subject<T> {
 	private stack: T[] = [];
 
+	public constructor( ...items: T[] ){
+		super();
+
+		if ( items && items.length > 0 ){
+			this.stack = items;
+			this.emitNewValue();
+		}
+	}
+
 	/**
 	 * DO NOT USE. This is an internal implementation.
 	 * 
