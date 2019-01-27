@@ -7,7 +7,7 @@ export default {
 	input: 'src/index.ts',
 	output: {
 		file: `dist/index.js`,
-		format: 'esnext',
+		format: 'es',
 		// Use `name` as window to hack a bit & avoid exports.
 		name: 'StackSubject',
 		sourcemap: true,
@@ -15,7 +15,6 @@ export default {
 	plugins: [
 		// Compile TypeScript files
 		typescript({
-			useTsconfigDeclarationDir: true,
 			clean:                     true,
 			check:                     true,
 		}),

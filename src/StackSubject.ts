@@ -1,4 +1,4 @@
-import { Subject, Subscriber, Subscription, SubscriptionLike, ObjectUnsubscribedError } from 'rxjs';
+import { Subject, Subscriber, Subscription, SubscriptionLike } from 'rxjs';
 
 const last = <T>( items: T[] ) => items.length > 0 ? items[items.length - 1] : undefined;
 
