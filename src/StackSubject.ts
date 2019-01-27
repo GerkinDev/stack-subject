@@ -48,13 +48,22 @@ export class StackSubject<T> extends Subject<T> {
 	}
 
 	/**
-	 * Append items to the stack.
+	 * Append items to the stack, and emit the last value.
 	 * 
 	 * @param items - Items to add at the end of the stack.
 	 */
 	public push( ...items: T[] ) {
 		this.stack.push( ...items );
 		this.emitNewValue();
+
+	/**
+	 * Append items to the stack, and emit each one of them
+	 * 
+	 * @param items - Items to add at the end of the stack.
+	 */
+	public pushEach( ...items: T[] ) {
+			this.push( item );
+		}
 		return this;
 	}
 
@@ -67,6 +76,18 @@ export class StackSubject<T> extends Subject<T> {
 		if ( count != 0 && this.stack.length !== 0 ){
 			this.stack = this.stack.slice( this.stack.length - ( count + 1 ), this.stack.length - count );
 			this.emitNewValue();
+		}
+		return this;
+	}
+
+	/**
+	 * Pop items from the stack, and emit each popped value.
+	 * 
+	 * @param count - The number of items to pop.
+	 */
+	public popEach( count = 1 ){
+		for ( let i = 0; i < count; i++ ){
+			this.pop();
 		}
 		return this;
 	}
