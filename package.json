@@ -7,13 +7,15 @@
 		"doc": "node --experimental-modules ./docs.mjs",
 		"test": "jest",
 		"build": "rollup -c ./rollup.config.js",
-		"start": "rollup -c ./rollup.config.js -w"
+        "start": "rollup -c ./rollup.config.js -w",
+        "prepublishOnly": "npm run build && npm run doc"
 	},
 	"keywords": [
 		"rxjs",
 		"stack",
 		"observable"
-	],
+    ],
+    "files": ["dist", "docs"],
 	"author": "Gerkin",
 	"license": "MIT",
 	"jest": {
