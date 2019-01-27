@@ -7,6 +7,15 @@ branches:
 notifications:
   email: false
 
+deploy:
+  provider: npm
+  email: "alexandre.j.p.germain@gmail.com"
+  api_key: "$NPM_TOKEN"
+  on:
+    tags: true
+    branch: master
+  tag: next
+
 node_js: "lts/*"
 os: linux
 env: CC_SAMPLE=true
