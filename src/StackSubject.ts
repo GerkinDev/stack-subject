@@ -14,6 +14,10 @@ export class StackSubject<T> extends Subject<T> {
 		}
 	}
 
+	public next( value?: T ){
+		throw new Error( 'Forbidden call to `next`. Please use `push` or `pushEach`.' );
+	}
+
 	/**
 	 * DO NOT USE. This is an internal implementation.
 	 * 

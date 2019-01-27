@@ -47,6 +47,10 @@ describe( 'Inherited & base class methods', () => {
 		observable.popEach( 2 );
 		expect( observable.value ).toEqual( undefined );
 	} );
+	it( 'Prevent call to `next`', () => {
+		const observable = new StackSubject<number>();
+		expect( () => observable.next() ).toThrowError( new Error( 'Forbidden call to `next`. Please use `push` or `pushEach`.' ) );
+	} );
 } );
 describe( 'Push methods', () => {
 	describe( '`push`', () => {
