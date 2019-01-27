@@ -29,6 +29,24 @@ describe( 'Inherited & base class methods', () => {
 			subscription.unsubscribe();
 		} );
 	} );
+	it( 'value', () => {
+		const observable = new StackSubject<number>();
+		expect( observable.value ).toEqual( undefined );
+
+		observable.push( 1 );
+		expect( observable.value ).toEqual( 1 );
+		observable.push( 2, 3 );
+		expect( observable.value ).toEqual( 3 );
+		observable.pushEach( 4,5 );
+		expect( observable.value ).toEqual( 5 );
+
+		observable.pop();
+		expect( observable.value ).toEqual( 4 );
+		observable.pop( 2 );
+		expect( observable.value ).toEqual( 2 );
+		observable.popEach( 2 );
+		expect( observable.value ).toEqual( undefined );
+	} );
 } );
 describe( 'Push methods', () => {
 	describe( '`push`', () => {
