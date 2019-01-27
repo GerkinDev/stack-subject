@@ -31,13 +31,7 @@ export class StackSubject<T> extends Subject<T> {
 	 * Retrieves the current value of the stack.
 	 */
 	public get value() {
-		if ( this.hasError ) {
-			throw this.thrownError;
-		} else if ( this.closed ) {
-			throw new ObjectUnsubscribedError();
-		} else {
-			return last( this.stack );
-		}
+		return last( this.stack );
 	}
 	
 	/**
@@ -53,8 +47,12 @@ export class StackSubject<T> extends Subject<T> {
 	 * @param items - Items to add at the end of the stack.
 	 */
 	public push( ...items: T[] ) {
-		this.stack.push( ...items );
-		this.emitNewValue();
+		if ( items.length !== 0 ){
+			this.stack.push( ...items );
+			this.emitNewValue();
+		}
+		return this;
+	}
 
 	/**
 	 * Append items to the stack, and emit each one of them
@@ -62,6 +60,7 @@ export class StackSubject<T> extends Subject<T> {
 	 * @param items - Items to add at the end of the stack.
 	 */
 	public pushEach( ...items: T[] ) {
+		for ( let item of items ){
 			this.push( item );
 		}
 		return this;
@@ -74,7 +73,7 @@ export class StackSubject<T> extends Subject<T> {
 	 */
 	public pop( count = 1 ){
 		if ( count != 0 && this.stack.length !== 0 ){
-			this.stack = this.stack.slice( this.stack.length - ( count + 1 ), this.stack.length - count );
+			this.stack = this.stack.slice( 0, this.stack.length - count );
 			this.emitNewValue();
 		}
 		return this;
