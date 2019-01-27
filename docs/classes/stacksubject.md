@@ -53,7 +53,7 @@ The type of item contained by the StackSubject.
 
 *Overrides Subject.__constructor*
 
-*Defined in [StackSubject.ts:13](https://github.com/GerkinDev/stack-subject/blob/cbcd623/src/StackSubject.ts#L13)*
+*Defined in [StackSubject.ts:13](https://github.com/GerkinDev/stack-subject/blob/d8ad22e/src/StackSubject.ts#L13)*
 
 **Parameters:**
 
@@ -73,7 +73,7 @@ ___
 
 getvalue(): `undefined` \| `T`
 
-*Defined in [StackSubject.ts:50](https://github.com/GerkinDev/stack-subject/blob/cbcd623/src/StackSubject.ts#L50)*
+*Defined in [StackSubject.ts:50](https://github.com/GerkinDev/stack-subject/blob/d8ad22e/src/StackSubject.ts#L50)*
 
 Retrieves the current value of the stack.
 
@@ -91,7 +91,7 @@ ___
 
 *Overrides Subject._subscribe*
 
-*Defined in [StackSubject.ts:39](https://github.com/GerkinDev/stack-subject/blob/cbcd623/src/StackSubject.ts#L39)*
+*Defined in [StackSubject.ts:39](https://github.com/GerkinDev/stack-subject/blob/d8ad22e/src/StackSubject.ts#L39)*
 
 DO NOT USE. This is an internal implementation.
 
@@ -112,7 +112,7 @@ ___
 
 *Overrides Subject.next*
 
-*Defined in [StackSubject.ts:30](https://github.com/GerkinDev/stack-subject/blob/cbcd623/src/StackSubject.ts#L30)*
+*Defined in [StackSubject.ts:30](https://github.com/GerkinDev/stack-subject/blob/d8ad22e/src/StackSubject.ts#L30)*
 
 DP NOT USE. This method will throw an error to force you to use the [push](#push) or [pushEach](#pushEach) methods.
 
@@ -134,7 +134,7 @@ ___
 
 ▸ **pop**(count?: *`number`*): `this`
 
-*Defined in [StackSubject.ts:91](https://github.com/GerkinDev/stack-subject/blob/cbcd623/src/StackSubject.ts#L91)*
+*Defined in [StackSubject.ts:91](https://github.com/GerkinDev/stack-subject/blob/d8ad22e/src/StackSubject.ts#L91)*
 
 Pop items from the stack, and emit new current value.
 
@@ -153,7 +153,7 @@ ___
 
 ▸ **popEach**(count?: *`number`*): `this`
 
-*Defined in [StackSubject.ts:104](https://github.com/GerkinDev/stack-subject/blob/cbcd623/src/StackSubject.ts#L104)*
+*Defined in [StackSubject.ts:104](https://github.com/GerkinDev/stack-subject/blob/d8ad22e/src/StackSubject.ts#L104)*
 
 Pop items from the stack, and emit each popped value.
 
@@ -172,7 +172,7 @@ ___
 
 ▸ **push**(...items: *`T`[]*): `this`
 
-*Defined in [StackSubject.ts:66](https://github.com/GerkinDev/stack-subject/blob/cbcd623/src/StackSubject.ts#L66)*
+*Defined in [StackSubject.ts:66](https://github.com/GerkinDev/stack-subject/blob/d8ad22e/src/StackSubject.ts#L66)*
 
 Append items to the stack, and emit the last value.
 
@@ -191,7 +191,7 @@ ___
 
 ▸ **pushEach**(...items: *`T`[]*): `this`
 
-*Defined in [StackSubject.ts:79](https://github.com/GerkinDev/stack-subject/blob/cbcd623/src/StackSubject.ts#L79)*
+*Defined in [StackSubject.ts:79](https://github.com/GerkinDev/stack-subject/blob/d8ad22e/src/StackSubject.ts#L79)*
 
 Append items to the stack, and emit each one of them
 
