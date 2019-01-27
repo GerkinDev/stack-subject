@@ -21,6 +21,12 @@ export class StackSubject<T> extends Subject<T> {
 		}
 	}
 
+	/**
+	 * DP NOT USE. This method will throw an error to force you to use the [push](#push) or [pushEach](#pushEach) methods.
+	 * 
+	 * @deprecated You should not use this class, in favor of [push](#push) or [pushEach](#pushEach)
+	 * @param value - Just don't do it.
+	 */
 	public next( value?: T ){
 		throw new Error( 'Forbidden call to `next`. Please use `push` or `pushEach`.' );
 	}

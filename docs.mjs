@@ -19,10 +19,16 @@ const constantContent = readmeContent.slice( 0, endPos ).trim();
 
 writeFileSync( README, constantContent );
 
+console.log( 'Back-up docs config' );
+const docsConfigContent = readFileSync( `${OUT}/_config.yml`, 'utf-8' );
+
 console.log( 'Generating docs' );
-spawnSync( 'typedoc', ['--theme', 'markdown', '--out', OUT, '--mode', 'file', '--excludeNotExported'] );
+spawnSync( 'typedoc', ['--theme', 'markdown', '--out', OUT, '--mode', 'file', '--excludeNotExported', '--excludePrivate'] );
 
 console.log( 'Copying README' );
 const rewritenContent = readFileSync( `${OUT}/README.md`, 'utf-8' );
 const replacedContent = rewritenContent.replace( /\]\((?!http)(\w)/g, `](${DOCS_URL}$1` );
 writeFileSync( README, replacedContent );
+
+console.log( 'Restore docs config' );
+writeFileSync( `${OUT}/_config.yml`, docsConfigContent );
