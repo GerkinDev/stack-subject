@@ -2,20 +2,26 @@
 	"name": "stack-subject",
 	"version": "0.0.0",
 	"description": "A stack, but observable",
-	"main": "index.js",
+	"main": "dist/index.js",
+	"types": "dist",
 	"scripts": {
 		"doc": "node --experimental-modules ./docs.mjs",
 		"test": "jest",
 		"build": "rollup -c ./rollup.config.js",
-        "start": "rollup -c ./rollup.config.js -w",
-        "prepublishOnly": "npm run build && npm run doc"
+		"start": "rollup -c ./rollup.config.js -w",
+		"preversion": "npm run test",
+		"version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md && npm run doc && git add docs",
+		"prepublishOnly": "npm run build"
 	},
 	"keywords": [
 		"rxjs",
 		"stack",
 		"observable"
-    ],
-    "files": ["dist", "docs"],
+	],
+	"files": [
+		"dist",
+		"docs"
+	],
 	"author": "Gerkin",
 	"license": "MIT",
 	"jest": {
@@ -57,6 +63,7 @@
 	"dependencies": {},
 	"devDependencies": {
 		"@types/jest": "^23.3.13",
+		"conventional-changelog-cli": "^2.0.11",
 		"jest": "^24.0.0",
 		"rollup": "^1.1.2",
 		"rollup-plugin-node-resolve": "^4.0.0",
