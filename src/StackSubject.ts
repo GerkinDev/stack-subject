@@ -57,4 +57,17 @@ export class StackSubject<T> extends Subject<T> {
 		this.emitNewValue();
 		return this;
 	}
+
+	/**
+	 * Pop items from the stack, and emit new current value.
+	 * 
+	 * @param count - The number of items to pop.
+	 */
+	public pop( count = 1 ){
+		if ( count != 0 && this.stack.length !== 0 ){
+			this.stack = this.stack.slice( this.stack.length - ( count + 1 ), this.stack.length - count );
+			this.emitNewValue();
+		}
+		return this;
+	}
 }
