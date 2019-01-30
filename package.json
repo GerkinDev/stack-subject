@@ -1,85 +1,92 @@
 {
-	"name": "stack-subject",
-	"version": "0.1.0",
-	"description": "A stack, but observable",
-	"main": "dist/index.js",
-	"types": "dist",
-	"scripts": {
-		"doc": "node --experimental-modules ./docs.mjs",
-		"test": "jest",
-		"build": "rollup -c ./rollup.config.js",
-		"start": "rollup -c ./rollup.config.js -w",
-		"preversion": "npm run test",
-		"version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md && npm run doc && git add docs",
-		"prepublishOnly": "npm run build"
-	},
-	"keywords": [
-		"rxjs",
-		"stack",
-		"observable"
-	],
-	"files": [
-		"dist",
-		"docs"
-	],
-	"author": "Gerkin",
-	"license": "MIT",
-	"jest": {
-		"testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(js|ts)x?$",
-		"moduleFileExtensions": [
-			"js",
-			"json",
-			"jsx",
-			"ts",
-			"tsx"
-		],
-		"moduleDirectories": [
-			"node_modules"
-		],
-		"roots": [
-			"tests"
-		],
-		"coverageThreshold": {
-			"global": {
-				"branches": 70,
-				"functions": 80,
-				"lines": 80,
-				"statements": 80
-			}
-		},
-		"collectCoverage": true,
-		"collectCoverageFrom": [
-			"src/**/*.{js,jsx,ts,tsx}"
-		],
-		"globals": {
-			"ts-jest": {
-				"tsConfig": "tests/tsconfig.test.json",
-				"diagnostics": false
-			}
-		},
-		"preset": "ts-jest",
-		"testMatch": null
-	},
-	"dependencies": {},
-	"devDependencies": {
-		"@types/jest": "^23.3.13",
-		"conventional-changelog-cli": "^2.0.11",
-		"jest": "^24.0.0",
-		"rollup": "^1.1.2",
-		"rollup-plugin-node-resolve": "^4.0.0",
-		"rollup-plugin-sourcemaps": "^0.4.2",
-		"rollup-plugin-terser": "^4.0.3",
-		"rollup-plugin-typescript": "^1.0.0",
-		"rollup-plugin-typescript2": "^0.19.2",
-		"rxjs": "^6.3.3",
-		"ts-jest": "^23.10.5",
-		"tslint": "^5.12.1",
-		"typedoc": "^0.14.2",
-		"typedoc-plugin-markdown": "^1.1.25",
-		"typedoc-plugin-no-inherit": "^1.1.2",
-		"typescript": "^3.2.4"
-	},
-	"peerDependencies": {
-		"rxjs": "^6.0.0"
-	}
+  "name": "stack-subject",
+  "version": "0.1.0-development",
+  "description": "A stack, but observable",
+  "main": "dist/index.js",
+  "types": "dist",
+  "scripts": {
+    "doc": "node --experimental-modules ./docs.mjs",
+    "test": "jest",
+    "build": "rollup -c ./rollup.config.js",
+    "start": "rollup -c ./rollup.config.js -w",
+    "prepublishOnly": "npm run build",
+    "semantic-release": "semantic-release"
+  },
+  "keywords": [
+    "rxjs",
+    "stack",
+    "observable"
+  ],
+  "files": [
+    "dist",
+    "docs"
+  ],
+  "author": "Gerkin",
+  "license": "MIT",
+  "jest": {
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(js|ts)x?$",
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "jsx",
+      "ts",
+      "tsx"
+    ],
+    "moduleDirectories": [
+      "node_modules"
+    ],
+    "roots": [
+      "tests"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 70,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    },
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tests/tsconfig.test.json",
+        "diagnostics": false
+      }
+    },
+    "preset": "ts-jest",
+    "testMatch": null
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@semantic-release/changelog": "^3.0.2",
+    "@semantic-release/exec": "^3.3.2",
+    "@semantic-release/git": "^7.0.8",
+    "@types/jest": "^23.3.13",
+    "conventional-changelog-cli": "^2.0.11",
+    "jest": "^24.0.0",
+    "rollup": "^1.1.2",
+    "rollup-plugin-node-resolve": "^4.0.0",
+    "rollup-plugin-sourcemaps": "^0.4.2",
+    "rollup-plugin-terser": "^4.0.3",
+    "rollup-plugin-typescript": "^1.0.0",
+    "rollup-plugin-typescript2": "^0.19.2",
+    "rxjs": "^6.3.3",
+    "semantic-release": "^15.13.3",
+    "ts-jest": "^23.10.5",
+    "tslint": "^5.12.1",
+    "typedoc": "^0.14.2",
+    "typedoc-plugin-markdown": "^1.1.25",
+    "typedoc-plugin-no-inherit": "^1.1.2",
+    "typescript": "^3.2.4"
+  },
+  "peerDependencies": {
+    "rxjs": "^6.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GerkinDev/stack-subject.git"
+  }
 }
