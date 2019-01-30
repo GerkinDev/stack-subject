@@ -1,3 +1,10 @@
+# [0.2.0](https://github.com/GerkinDev/stack-subject/compare/v0.1.0...v0.2.0) (2019-01-30)
+
+
+### Features
+
+* 🎸 Added `length` getter on StackSubject ([3cd4b82](https://github.com/GerkinDev/stack-subject/commit/3cd4b82))
+
 # 0.1.0 (2019-01-27)
 
 ### Features
