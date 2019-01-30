@@ -11,7 +11,19 @@ const last = <T>( items: T[] ) => items.length > 0 ? items[items.length - 1] : u
  */
 export class StackSubject<T> extends Subject<T> {
 	private stack: T[] = [];
+	
+	/**
+	 * Get the current number of items stacked in the observable.
+	 */
+	public get length(){
+		return this.stack.length;
+	}
 
+	/**
+	 * Create a new observable, and eventually initialize it with some items.
+	 * 
+	 * @param items - The initial stack contained by the new StackSubject.
+	 */
 	public constructor( ...items: T[] ){
 		super();
 

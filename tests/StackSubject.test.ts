@@ -32,14 +32,14 @@ describe( 'Inherited & base class methods', () => {
 	it( 'value', () => {
 		const observable = new StackSubject<number>();
 		expect( observable.value ).toEqual( undefined );
-
+		
 		observable.push( 1 );
 		expect( observable.value ).toEqual( 1 );
 		observable.push( 2, 3 );
 		expect( observable.value ).toEqual( 3 );
 		observable.pushEach( 4,5 );
 		expect( observable.value ).toEqual( 5 );
-
+		
 		observable.pop();
 		expect( observable.value ).toEqual( 4 );
 		observable.pop( 2 );
@@ -246,4 +246,35 @@ describe( 'Pop methods', () => {
 			subscription.unsubscribe();
 		} );
 	} );
+} );
+it( 'Length', () => {
+	const observable = new StackSubject<number>();
+	expect( observable.length ).toEqual( 0 );
+	
+	observable.push( 1 );
+	expect( observable.length ).toEqual( 1 );
+	
+	observable.push( 2,3 );
+	expect( observable.length ).toEqual( 3 );
+	
+	observable.pushEach( 4 );
+	expect( observable.length ).toEqual( 4 );
+	
+	observable.pushEach( 5,6,7 );
+	expect( observable.length ).toEqual( 7 );
+	
+	observable.pop();
+	expect( observable.length ).toEqual( 6 );
+	
+	observable.pop( 2 );
+	expect( observable.length ).toEqual( 4 );
+	
+	observable.popEach();
+	expect( observable.length ).toEqual( 3 );
+	
+	observable.popEach( 2 );
+	expect( observable.length ).toEqual( 1 );
+	
+	observable.pop( 2 );
+	expect( observable.length ).toEqual( 0 );
 } );
